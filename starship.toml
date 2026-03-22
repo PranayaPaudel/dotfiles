@@ -1,0 +1,26 @@
+add_newline = false
+
+format = "$directory$git_branch$character"
+
+[directory]
+style = "bold blue"
+truncation_length = 3
+
+[git_branch]
+symbol = " "
+style = "yellow"
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+
+[aws]
+disabled = true
+[gcloud]
+disabled = true
+[nodejs]
+disabled = true
+[python]
+disabled = true
+[docker_context]
+disabled = true
