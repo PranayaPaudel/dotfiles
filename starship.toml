@@ -25,6 +25,11 @@ format = "[[$symbol$branch]($style)]($style)"
 
 [git_status]
 style = "bg:#24273a fg:#eed49f"
+untracked = "" 
+modified = "󰏫 "
+staged = "󰐖 "
+renamed = "󰁯 "
+deleted = "󰗨 "
 format = "[[($all_status$ahead_behind)]($style)]($style)"
 
 [character]
