@@ -24,7 +24,7 @@ EOF
 echo -e "\e[0m"
 
 # Minimal status line
-echo -e "  \033[3;34m󰚀 system_online \033[0m| \033[3;32m󰄭 $USER@$(hostname) \033[0m"
+echo -e "  \e[1;34m󰚀\e[0m system_online \e[1;37m|\e[0m \e[1;32m󰄭\e[0m \e[1;32mparnaye\e[0m\e[1;30m@\e[0m\e[1;32mparnaye-GF65MSI\e[0m"
 echo ""
 
 
@@ -42,7 +42,7 @@ HISTFILESIZE=2000
 # ------------------------
 # COLORS FOR LS
 # ------------------------
-alias ls='ls --color=auto'
+alias ls='ls --color=always'
 alias ll='ls -alF'
 alias la='ls -A'
 
