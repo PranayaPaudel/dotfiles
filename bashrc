@@ -1,4 +1,13 @@
 # ------------------------
+# LOAD SYSTEM DEFAULTS
+# ------------------------
+if [ -f /etc/bash.bashrc ]; then
+  . /etc/bash.bashrc
+fi
+
+
+
+# ------------------------
 # BASIC SETTINGS
 # ------------------------
 HISTCONTROL=ignoreboth
@@ -7,12 +16,14 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 
 
+
 # ------------------------
 # COLORS FOR LS
 # ------------------------
 alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
+
 
 
 # ------------------------
@@ -24,6 +35,7 @@ alias gp='git push'
 alias gl='git pull'
 
 
+
 # ------------------------
 # NAVIGATION
 # ------------------------
@@ -31,7 +43,10 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 
+
 # ------------------------
 # STARSHIP PROMPT
 # ------------------------
-eval "$(starship init bash)"
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init bash)"
+fi
