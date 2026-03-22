@@ -1,21 +1,39 @@
 add_newline = true
 
+
 format = """
-[](blue)$directory[](blue) $git_branch
-$character
-"""
+[](#363a4f)\
+$directory\
+[](fg:#363a4f bg:#24273a)\
+$git_branch\
+$git_status\
+[](fg:#24273a)\
+$line_break\
+$character"""
 
 [directory]
-style = "bold blue"
+format = "[ 󰉋 $path ]($style)"
+style = "bg:#363a4f fg:#8aadf4" # Soft Blue on Dark Gray
 truncation_length = 3
+truncation_symbol = "󰇘/"
 
 [git_branch]
-symbol = " "
-style = "bold mauve"
+symbol = "  "
+# Soft Lavender bubble
+style = "bg:#24273a fg:#b7bdf8"
+format = "[[$symbol$branch]($style)]($style)"
+
+[git_status]
+style = "bg:#24273a fg:#eed49f"
+format = "[[($all_status$ahead_behind)]($style)]($style)"
 
 [character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](red)"
+success_symbol = "[ ❯](bold green) "
+error_symbol = "[ ❯](bold red) "
+
+
+
+
 
 [aws]
 disabled = true
