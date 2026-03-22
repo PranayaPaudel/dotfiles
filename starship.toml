@@ -1,6 +1,9 @@
-add_newline = false
+add_newline = true
 
-format = "$directory$git_branch$character"
+format = """
+[](blue)$directory[](blue) $git_branch
+$character
+"""
 
 [directory]
 style = "bold blue"
@@ -8,10 +11,10 @@ truncation_length = 3
 
 [git_branch]
 symbol = " "
-style = "yellow"
+style = "bold mauve"
 
 [character]
-success_symbol = "[❯](green)"
+success_symbol = "[❯](bold green)"
 error_symbol = "[❯](red)"
 
 [aws]
