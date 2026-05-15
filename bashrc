@@ -8,24 +8,17 @@ fi
 
 
 # ------------------------
-# BANNER
+# BANNER / FETCH
 # ------------------------
 clear
 
-
-echo -e "\e[1;35m"
-cat << "EOF"
-    ____  ____ __________  ____ ___  __  ___
-   / __ \/ __ `/ ___/ __ \/ __ `/ / / / / _ \
-  / /_/ / /_/ / /  / / / / /_/ / /_/ /  __/
- / .___/\__,_/_/  /_/ /_/\__,_/\__, /\___/ 
-/_/                           /____/       
-EOF
-echo -e "\e[0m"
-
-# Minimal status line
-echo -e "  \e[1;34m󰚀\e[0m system_online \e[1;37m|\e[0m \e[1;32m󰄭\e[0m \e[1;32mparnaye\e[0m\e[1;30m@\e[0m\e[1;32mparnaye-GF65MSI\e[0m"
-echo ""
+if command -v fastfetch >/dev/null 2>&1; then
+  fastfetch
+else
+  # Fallback minimal dynamic status line if fastfetch is not installed
+  echo -e "  \e[1;34m󰚀\e[0m system_online \e[1;37m|\e[0m \e[1;32m󰄭\e[0m \e[1;32m$USER\e[0m\e[1;30m@\e[0m\e[1;32m$HOSTNAME\e[0m"
+  echo ""
+fi
 
 
 

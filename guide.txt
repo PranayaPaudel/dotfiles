@@ -1,0 +1,109 @@
+                        AI SLOP WARNING ⚠
+
+# Dotfiles Setup Guide
+
+This guide provides a complete, step-by-step process to achieve this exact custom environment on a newly installed Ubuntu system. By following these steps sequentially, you will fully configure your terminal, prompt, shell aliases, and GNOME desktop environment.
+
+## Prerequisites
+
+Before applying the configurations, you need to install the required software:
+
+1. **Kitty Terminal:**
+   ```bash
+   sudo apt update
+   sudo apt install kitty
+   ```
+
+2. **Starship Prompt:**
+   ```bash
+   curl -sS https://starship.rs/install.sh | sh
+   ```
+
+3. **Nerd Fonts (Crucial for icons in Starship & Kitty):**
+   Your `kitty.conf` uses `UbuntuMono Nerd Font Mono`. You need to install it.
+   - Download the font from the [Nerd Fonts Releases page](https://github.com/ryanoasis/nerd-fonts/releases).
+   - Extract the zip file and move the `.ttf` files to `~/.local/share/fonts/`.
+   - Run `fc-cache -fv` to refresh the font cache.
+
+4. **Fastfetch (System Info):**
+   Displays system information dynamically.
+   ```bash
+   sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
+   sudo apt update
+   sudo apt install fastfetch
+   ```
+
+5. **GNOME Extension Manager & Tweaks:**
+   Essential tools for ricing the Ubuntu desktop environment without breaking it.
+   ```bash
+   sudo apt install gnome-shell-extension-manager gnome-tweaks
+   ```
+
+## Installation / Applying Dotfiles
+
+Assuming you have cloned this repository, navigate to the root of the repository in your terminal and follow these steps to symlink the configurations to your home directory.
+
+**1. Backup your existing configurations:**
+It's always a good idea to back up your current settings before replacing them.
+```bash
+mv ~/.bashrc ~/.bashrc.bak
+mv ~/.config/starship.toml ~/.config/starship.toml.bak 2>/dev/null
+mv ~/.config/kitty ~/.config/kitty.bak 2>/dev/null
+```
+
+**2. Create Symlinks:**
+Run the following commands from inside the cloned `dotfiles` directory to create symbolic links. This way, if you edit a file here, it updates your system immediately.
+
+```bash
+# Get the absolute path to your cloned dotfiles directory
+DOTFILES_DIR=$(pwd)
+
+# Link .bashrc
+ln -s "$DOTFILES_DIR/bashrc" ~/.bashrc
+
+# Link Starship configuration
+mkdir -p ~/.config
+ln -s "$DOTFILES_DIR/starship.toml" ~/.config/starship.toml
+
+# Link Kitty configuration
+ln -s "$DOTFILES_DIR/kitty" ~/.config/kitty
+```
+
+**3. Apply the changes:**
+Restart your terminal, or source your new `.bashrc` to apply the changes immediately:
+```bash
+source ~/.bashrc
+```
+
+**4. Install GNOME Extensions:**
+Open the **Extension Manager** app (installed in Prerequisites) and use the "Browse" tab to install the following community extensions to rice your desktop:
+- **Vitals:** Hardware stats in top bar.
+- **Blur my Shell:** Frosted glass effect for top bar and app overview.
+- **Space Bar:** Minimal workspace numbers (1, 2, 3) instead of "Activities".
+- **Just Perfection:** Hide default UI elements (like the clock or accessibility menu) to clean up the bar.
+
+---
+
+## What is configured here?
+
+1. **`.bashrc`:**
+   - Automatically runs `fastfetch` to display system information on startup, or a minimal dynamic status line as a fallback.
+   - Cleaned up bash history settings.
+   - Aliases for `ls` to show colors by default (`ll`, `la`).
+   - Shortened Git aliases (`gs`, `gc`, `gp`, `gl`).
+   - Quick navigation aliases (`..`, `...`).
+   - Initialization for the Starship prompt.
+
+2. **`starship.toml`:**
+   - Custom minimal and modern prompt design.
+   - Customized colors (soft blues, lavenders, dark grays).
+   - Git branch and status integration with Nerd Font icons.
+   - Disabled heavy modules (aws, gcloud, docker, etc.) for faster load times.
+
+3. **`kitty/` (Terminal Emulator):**
+   - Font set to `UbuntuMono Nerd Font Mono` (size 13).
+   - Semi-transparent background with blur (`background_opacity 0.92`, `background_blur 32`).
+   - Clean UI with hidden window decorations and custom padding.
+   - Beam cursor shape.
+   - Custom keybindings for tabs, splits (`ctrl+shift+enter`, `ctrl+shift+o`), and navigation between panes.
+   - Theming support (`include current-theme.conf`).
