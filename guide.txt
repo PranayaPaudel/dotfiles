@@ -1,0 +1,29 @@
+# Ricing Tools & Technologies Used
+
+This system uses the following tools to achieve a custom, cohesive desktop environment:
+
+1. **Terminal Emulator: Kitty**
+   - Fast, GPU-accelerated terminal.
+   - Configured with custom opacity, blur, fonts, and manual Catppuccin color codes.
+
+2. **Shell Prompt: Starship**
+   - Cross-shell, blazingly fast prompt written in Rust.
+   - Customized with Nerd Font icons and soft pastel colors.
+
+3. **CLI System Info: Fastfetch**
+   - Modern replacement for neofetch, run automatically in `.bashrc`.
+
+4. **Desktop Environment Tweak: GNOME Extensions**
+   - Managed via `gnome-shell-extension-manager`.
+   - **Vitals:** Hardware monitoring in the top bar.
+   - **Blur my Shell:** Frosted glass effect for UI.
+   - **Space Bar:** Minimal tiling-WM-style workspace indicators.
+   - **Hide Top Bar:** Autohides the top GNOME panel during fullscreen. Revealed via Windows key (Hover disabled due to Wayland conflict).
+
+
+5. **System-Wide Theming: Colloid-Dark-Compact (Catppuccin Tweak)**
+   - **GTK Theme:** Applies to GNOME applications for a cohesive dark mode with round Mac-style traffic light buttons.
+   - **Shell Theme:** Applies to the GNOME desktop environment (Top Panel, Dropdowns, Menus) via the `user-theme` extension to match the Catppuccin aesthetic.
+
+6. **Icon Pack: Papirus-Dark**
+   - Flat, modern, material-design SVG icon pack that seamlessly replaces default GNOME icons. Installed natively via apt.
