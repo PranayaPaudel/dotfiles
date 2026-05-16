@@ -475,6 +475,7 @@ window-preview-title-position='TOP'
 
 [shell/extensions/ding]
 check-x11wayland=true
+show-home=false
 
 [shell/extensions/hidetopbar]
 mouse-sensitive=false
