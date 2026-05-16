@@ -66,4 +66,10 @@ else
     echo "Warning: gnome_settings.dconf not found. Skipping GNOME restore."
 fi
 
+echo "Applying Wallpaper..."
+if [ -f "$DOTFILES_DIR/wallpaper.png" ]; then
+    gsettings set org.gnome.desktop.background picture-uri "file://$DOTFILES_DIR/wallpaper.png"
+    gsettings set org.gnome.desktop.background picture-uri-dark "file://$DOTFILES_DIR/wallpaper.png"
+fi
+
 echo "Installation Complete! Please reboot or log out to apply all GNOME extensions safely."

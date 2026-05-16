@@ -100,8 +100,8 @@ translate=true
 [desktop/background]
 color-shading-type='solid'
 picture-options='zoom'
-picture-uri='file:///home/parnaye/.local/share/backgrounds/2025-09-17-22-40-03-desktop-wallpaper-black-color.png'
-picture-uri-dark='file:///home/parnaye/.local/share/backgrounds/2025-09-17-22-40-03-desktop-wallpaper-black-color.png'
+picture-uri='file:///home/parnaye/Documents/Projects/dotfiles/wallpaper.png'
+picture-uri-dark='file:///home/parnaye/Documents/Projects/dotfiles/wallpaper.png'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
