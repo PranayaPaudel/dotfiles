@@ -6,7 +6,7 @@ echo "Starting Dotfiles Installation..."
 # 1. Install System Packages
 echo "Installing APT packages..."
 sudo apt update
-sudo apt install -y kitty sassc gnome-shell-extension-manager papirus-icon-theme gnome-shell-extensions curl git
+sudo apt install -y kitty sassc gnome-shell-extension-manager papirus-icon-theme gnome-shell-extensions curl git conky-all
 
 # 2. Install Starship & Fastfetch
 echo "Installing Starship..."
@@ -28,10 +28,13 @@ rm ~/.local/share/fonts/UbuntuMono.zip
 echo "Creating Symlinks..."
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-mkdir -p ~/.config
+mkdir -p ~/.config/conky
 # We use -sfn to force replace if it's already a symlink or directory
 ln -sfn "$DOTFILES_DIR/kitty" ~/.config/kitty
 ln -sf "$DOTFILES_DIR/starship.toml" ~/.config/starship.toml
+ln -sf "$DOTFILES_DIR/conky/conky.conf" ~/.config/conky/conky.conf
+mkdir -p ~/.config/autostart
+ln -sf "$DOTFILES_DIR/conky/conky.desktop" ~/.config/autostart/conky.desktop
 
 # Backup original bashrc if it's not a symlink
 if [ ! -L ~/.bashrc ]; then
