@@ -6,7 +6,7 @@ echo "Starting Dotfiles Installation..."
 # 1. Install System Packages
 echo "Installing APT packages..."
 sudo apt update
-sudo apt install -y kitty sassc gnome-shell-extension-manager papirus-icon-theme gnome-shell-extensions curl git conky-all
+sudo apt install -y kitty sassc gnome-shell-extension-manager papirus-icon-theme gnome-shell-extensions curl git conky-all zsh zsh-autosuggestions zsh-syntax-highlighting
 
 # 2. Install Starship & Fastfetch
 echo "Installing Starship..."
@@ -48,6 +48,12 @@ if [ ! -L ~/.bashrc ]; then
 fi
 ln -sf "$DOTFILES_DIR/bashrc" ~/.bashrc
 
+# Backup original zshrc if it's not a symlink
+if [ ! -L ~/.zshrc ] && [ -f ~/.zshrc ]; then
+    mv ~/.zshrc ~/.zshrc.backup
+fi
+ln -sf "$DOTFILES_DIR/zshrc" ~/.zshrc
+
 # 4. Install Colloid Theme
 echo "Installing Colloid Theme..."
 if [ ! -d "/tmp/Colloid-gtk-theme" ]; then
@@ -76,6 +82,12 @@ echo "Applying Wallpaper..."
 if [ -f "$DOTFILES_DIR/wallpaper.png" ]; then
     gsettings set org.gnome.desktop.background picture-uri "file://$DOTFILES_DIR/wallpaper.png"
     gsettings set org.gnome.desktop.background picture-uri-dark "file://$DOTFILES_DIR/wallpaper.png"
+fi
+
+# 6. Change Default Shell
+echo "Changing default shell to Zsh..."
+if [ "$SHELL" != "$(which zsh)" ]; then
+    chsh -s $(which zsh) || echo "Please run 'chsh -s \$(which zsh)' manually if prompted for password."
 fi
 
 echo "Installation Complete! Please reboot or log out to apply all GNOME extensions safely."
