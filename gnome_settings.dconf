@@ -119,6 +119,7 @@ xkb-options=@as []
 clock-format='12h'
 clock-show-weekday=true
 color-scheme='prefer-dark'
+cursor-theme='catppuccin-mocha-dark-cursors'
 enable-animations=true
 gtk-theme='Colloid-Dark-Compact-Catppuccin'
 icon-theme='Papirus-Dark'

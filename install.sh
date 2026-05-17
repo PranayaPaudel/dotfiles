@@ -24,6 +24,12 @@ unzip -o ~/.local/share/fonts/UbuntuMono.zip -d ~/.local/share/fonts/UbuntuMono
 fc-cache -fv
 rm ~/.local/share/fonts/UbuntuMono.zip
 
+echo "Installing Catppuccin Cursor Theme..."
+mkdir -p ~/.icons
+curl -fLo /tmp/catppuccin-cursors.zip https://github.com/catppuccin/cursors/releases/download/v0.3.1/catppuccin-mocha-dark-cursors.zip
+unzip -o /tmp/catppuccin-cursors.zip -d ~/.icons/
+rm /tmp/catppuccin-cursors.zip
+
 # 3. Create Symlinks
 echo "Creating Symlinks..."
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
