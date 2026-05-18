@@ -5,8 +5,9 @@ echo "Starting Dotfiles Installation..."
 
 # 1. Install System Packages
 echo "Installing APT packages..."
+sudo add-apt-repository -y ppa:agornostal/ulauncher
 sudo apt update
-sudo apt install -y kitty sassc gnome-shell-extension-manager papirus-icon-theme gnome-shell-extensions curl git conky-all zsh zsh-autosuggestions zsh-syntax-highlighting
+sudo apt install -y kitty sassc gnome-shell-extension-manager papirus-icon-theme gnome-shell-extensions curl git conky-all zsh zsh-autosuggestions zsh-syntax-highlighting ulauncher
 
 # 2. Install Starship & Fastfetch
 echo "Installing Starship..."
@@ -29,6 +30,17 @@ mkdir -p ~/.icons
 curl -fLo /tmp/catppuccin-cursors.zip https://github.com/catppuccin/cursors/releases/download/v0.3.1/catppuccin-mocha-dark-cursors.zip
 unzip -o /tmp/catppuccin-cursors.zip -d ~/.icons/
 rm /tmp/catppuccin-cursors.zip
+
+echo "Installing Ulauncher Catppuccin Theme..."
+mkdir -p ~/.config/ulauncher/user-themes
+if [ ! -d ~/.config/ulauncher/user-themes/catppuccin ]; then
+    git clone https://github.com/catppuccin/ulauncher.git ~/.config/ulauncher/user-themes/catppuccin
+fi
+python3 ~/.config/ulauncher/user-themes/catppuccin/install.py
+
+# Link custom transparent CSS over the generated theme
+ln -sf "$DOTFILES_DIR/ulauncher/theme.css" ~/.config/ulauncher/user-themes/Catppuccin-Mocha-Blue/theme.css
+ln -sf "$DOTFILES_DIR/ulauncher/settings.json" ~/.config/ulauncher/settings.json
 
 # 3. Create Symlinks
 echo "Creating Symlinks..."

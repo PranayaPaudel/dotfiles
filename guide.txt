@@ -20,7 +20,6 @@ This system uses the following tools to achieve a custom, cohesive desktop envir
    - **Space Bar:** Minimal tiling-WM-style workspace indicators.
    - **Hide Top Bar:** Autohides the top GNOME panel during fullscreen. Revealed via Windows key (Hover disabled due to Wayland conflict).
 
-
 5. **System-Wide Theming: Colloid-Dark-Compact (Catppuccin Tweak)**
    - **GTK Theme:** Applies to GNOME applications for a cohesive dark mode with round Mac-style traffic light buttons.
    - **Shell Theme:** Applies to the GNOME desktop environment (Top Panel, Dropdowns, Menus) via the `user-theme` extension to match the Catppuccin aesthetic.

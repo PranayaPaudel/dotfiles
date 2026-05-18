@@ -17,7 +17,10 @@ if [ -d "$HOME/.local/share/gnome-shell/extensions" ]; then
     cp -r "$HOME/.local/share/gnome-shell/extensions/"* "$DOTFILES_DIR/gnome_extensions/" 2>/dev/null || true
 fi
 
-echo "Backup Complete! You can now run:"
-echo "  git add ."
+echo "Backing up Ulauncher Settings..."
+cp ~/.config/ulauncher/settings.json "$DOTFILES_DIR/ulauncher/settings.json"
+cp ~/.config/ulauncher/user-themes/Catppuccin-Mocha-Blue/theme.css "$DOTFILES_DIR/ulauncher/theme.css"
+
+echo "Backup Complete! You can now 'git commit' your changes."
 echo "  git commit -m \"Updated settings\""
 echo "  git push"
