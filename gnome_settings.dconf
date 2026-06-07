@@ -21,7 +21,7 @@ subtitle-encoding='UTF-8'
 [baobab/ui]
 active-chart='rings'
 is-maximized=false
-window-size=(960, 600)
+window-size=(1113, 600)
 
 [calculator]
 accuracy=9
@@ -59,12 +59,12 @@ world-clocks=@aa{sv} []
 
 [clocks/state/window]
 maximized=false
-panel-id='world'
+panel-id='alarm'
 size=(870, 690)
 
 [control-center]
-last-panel='power'
-window-state=(980, 640, true)
+last-panel='wifi'
+window-state=(980, 640, false)
 
 [deja-dup]
 backend='google'
@@ -127,7 +127,7 @@ show-battery-percentage=true
 toolkit-accessibility=false
 
 [desktop/notifications]
-application-children=['org-gnome-characters', 'apport-gtk', 'org-gnome-dejadup', 'brave-browser', 'gnome-power-panel', 'org-gnome-terminal-preferences', 'org-gnome-eog', 'org-gnome-terminal', 'org-gnome-totem', 'org-gnome-nautilus', 'org-gnome-settings', 'firefox-firefox', 'libreoffice-impress', 'libreoffice-writer', 'org-gnome-baobab', 'org-gnome-evince', 'proton-vpn-app-gtk', 'kitty', 'antigravity', 'snapd-desktop-integration-snapd-desktop-integration']
+application-children=['org-gnome-characters', 'apport-gtk', 'org-gnome-dejadup', 'brave-browser', 'gnome-power-panel', 'org-gnome-terminal-preferences', 'org-gnome-eog', 'org-gnome-terminal', 'org-gnome-totem', 'org-gnome-nautilus', 'org-gnome-settings', 'firefox-firefox', 'libreoffice-impress', 'libreoffice-writer', 'org-gnome-baobab', 'org-gnome-evince', 'proton-vpn-app-gtk', 'kitty', 'antigravity', 'snapd-desktop-integration-snapd-desktop-integration', 'ulauncher', 'org-vinegarhq-sober']
 show-banners=true
 show-in-lock-screen=true
 
@@ -185,11 +185,17 @@ application-id='org.gnome.Terminal.desktop'
 [desktop/notifications/application/org-gnome-totem]
 application-id='org.gnome.Totem.desktop'
 
+[desktop/notifications/application/org-vinegarhq-sober]
+application-id='org.vinegarhq.Sober.desktop'
+
 [desktop/notifications/application/proton-vpn-app-gtk]
 application-id='proton.vpn.app.gtk.desktop'
 
 [desktop/notifications/application/snapd-desktop-integration-snapd-desktop-integration]
 application-id='snapd-desktop-integration_snapd-desktop-integration.desktop'
+
+[desktop/notifications/application/ulauncher]
+application-id='ulauncher.desktop'
 
 [desktop/peripherals/keyboard]
 numlock-state=true
@@ -215,6 +221,7 @@ sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gn
 idle-delay=uint32 900
 
 [desktop/wm/keybindings]
+activate-window-menu=@as []
 maximize=@as []
 unmaximize=@as []
 
@@ -237,8 +244,8 @@ show-sidebar=false
 sidebar-page='thumbnails'
 sidebar-size=135
 sizing-mode='free'
-window-ratio=(1.6120906801007557, 1.2454734657507684)
-zoom=0.70710676908493042
+window-ratio=(1.612632313331636, 1.2826603325415677)
+zoom=0.37449571916400742
 
 [evolution-data-server]
 migrated=true
@@ -357,6 +364,14 @@ visible-columns=['post-time', 'duration', 'track-number', 'album', 'genre', 'art
 
 [settings-daemon/plugins/color]
 night-light-enabled=false
+
+[settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+
+[settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Alt>space'
+command='ulauncher-toggle'
+name='Ulauncher'
 
 [settings-daemon/plugins/power]
 idle-dim=true
@@ -584,6 +599,28 @@ show-voltage=false
 
 [shell/world-clocks]
 locations=@av []
+
+[shotwell/preferences/ui]
+display-basic-properties=true
+display-event-comments=false
+display-extended-properties=false
+display-photo-comments=false
+display-photo-ratings=true
+display-photo-tags=true
+display-photo-titles=false
+display-search-bar=false
+display-sidebar=true
+events-sort-ascending=false
+library-photos-sort-ascending=false
+library-photos-sort-by=2
+photo-thumbnail-scale=141
+show-welcome-dialog=false
+sidebar-position=180
+
+[shotwell/preferences/window]
+library-height=768
+library-maximize=false
+library-width=1024
 
 [terminal/legacy]
 mnemonics-enabled=true
