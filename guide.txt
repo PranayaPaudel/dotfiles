@@ -26,3 +26,8 @@ This system uses the following tools to achieve a custom, cohesive desktop envir
 
 6. **Icon Pack: Papirus-Dark**
    - Flat, modern, material-design SVG icon pack that seamlessly replaces default GNOME icons. Installed natively via apt.
+
+7. **System Monitor: Conky**
+   - Provides a minimal, heads-up display of system resources on the desktop.
+   - Configured with true ARGB transparency to prevent pixelated redraw artifacts.
+   - **Fan Speeds:** Pulls live CPU and GPU fan RPMs via the `msi-ec` Linux kernel module. Ensure your MSI Embedded Controller driver is loaded so that `/sys/devices/platform/msi-ec/cpu/realtime_fan_speed` is available for accurate readings!

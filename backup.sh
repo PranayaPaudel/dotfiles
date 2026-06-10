@@ -21,6 +21,11 @@ echo "Backing up Ulauncher Settings..."
 cp ~/.config/ulauncher/settings.json "$DOTFILES_DIR/ulauncher/settings.json"
 cp ~/.config/ulauncher/user-themes/Catppuccin-Mocha-Blue/theme.css "$DOTFILES_DIR/ulauncher/theme.css"
 
+# 4. Backup Conky Settings (in case symlinks were broken)
+echo "Backing up Conky Settings..."
+cp ~/.config/conky/conky.conf "$DOTFILES_DIR/conky/conky.conf" 2>/dev/null || true
+cp ~/.config/autostart/conky.desktop "$DOTFILES_DIR/conky/conky.desktop" 2>/dev/null || true
+
 echo "Backup Complete! You can now 'git commit' your changes."
 echo "  git commit -m \"Updated settings\""
 echo "  git push"
